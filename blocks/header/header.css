@@ -1,0 +1,4 @@
+.header {
+    max-width: calc(100% - 16px * 2);
+    margin: 20px auto 20px;
+}
