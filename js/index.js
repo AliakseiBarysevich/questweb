@@ -13,11 +13,11 @@ const answers = {
 
 const onCorrectAnswerHTML = {
   1: `<p class="correct-answer-board__text">Поздравляем! Начало положено, вы&nbsp;разгадали первое из&nbsp;семи заданий.</p>`,
-  2: `<p class=\"correct-answer-board__text\">Отлично! Два задания из&nbsp;семи уже позади.</p>`,
-  3: `<p class=\"correct-answer-board__text\">Почти половина квеста уже пройдена! Три задания из&nbsp;семи покорились вам.</p>`,
-  4: `<p class=\"correct-answer-board__text\">Ого, вы&nbsp;ответили уже на&nbsp;четыре задания из&nbsp;семи! Осталось всего ничего.</p>`,
-  5: `<p class=\"correct-answer-board__text\">Пятое задание из&nbsp;семи тоже за&nbsp;вами, осталось всего два!</p>`,
-  6: `<p class=\"correct-answer-board__text\">Супер, вы&nbsp;ответили на&nbsp;шесть заданий из&nbsp;семи! Даже немного грустно, что осталось всего одно.</p>`,
+  2: `<p class="correct-answer-board__text">Отлично! Два задания из&nbsp;семи уже позади.</p>`,
+  3: `<p class="correct-answer-board__text">Почти половина квеста уже пройдена! Три задания из&nbsp;семи покорились вам.</p>`,
+  4: `<p class="correct-answer-board__text">Ого, вы&nbsp;ответили уже на&nbsp;четыре задания из&nbsp;семи! Осталось всего ничего.</p>`,
+  5: `<p class="correct-answer-board__text">Пятое задание из&nbsp;семи тоже за&nbsp;вами, осталось всего два!</p>`,
+  6: `<p class="correct-answer-board__text">Супер, вы&nbsp;ответили на&nbsp;шесть заданий из&nbsp;семи! Даже немного грустно, что осталось всего одно.</p>`,
   7: `<p class="correct-answer-board__text">Семь из&nbsp;семи, наши поздравления! Теперь можете получить свой бонус у&nbsp;администратора.</p>
       <p class="correct-answer-board__text">
           Надеемся, что вам понравилось! Если квест, действительно, пришёлся вам по&nbsp;душе или есть
@@ -31,7 +31,7 @@ const onCorrectAnswerHTML = {
 // Handlers for actions:
 
 const handleResponse = (questionNumber, responseTextElementId) => {
-  if (answers[questionNumber].includes(document.getElementById(responseTextElementId).value)) {
+  if (answers[questionNumber].includes(document.getElementById(responseTextElementId).value.trim())) {
     saveCorrectResponse(questionNumber);
     const totalCorrectResponses = getCurrentTotalCorrectResponses()
     renderResponseCorrectBlock(questionNumber, totalCorrectResponses);
