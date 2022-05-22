@@ -7,9 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Квест по выставке "Очарования Делакруа"</title>
     <link rel="stylesheet" href="./pages/index.css">
+    <script src="js/index.js"></script>
 </head>
 
-<body class="page">
+<body class="page" onload="renderOnLoadFromLocalStorage()">
     <header class="header">
         <h1 class="header__title">КВЕСТ ПО ВЫСТАВКЕ «ОЧАРОВАНИЯ ДЕЛАКРУА»</h1>
     </header>
@@ -45,23 +46,22 @@
                 которой&nbsp;ОН фигурирует?</p>
             <form class="form">
                 <label class="form__label" for="first-puzzle">Ваш ответ:</label>
-                <input class="form__field" type="number" min="1800" max="2022" id="first-puzzle" name="fisrt-puzzle"
+                <input class="form__field" type="number" min="1800" max="2022" id="first-puzzle" name="first-puzzle"
                     placeholder="Например: 1984">
-                <div class="form__button-container">
-                    <button class="form__button form__button_type_submit" type="submit">Ответить</button>
-                    <button class="form__button form__button_type_hint" type="button">Узнать ответ</button>
-                </div>
             </form>
-            <div class="wrong-answer-board">
+            <div class="form__button-container">
+                <button class="form__button form__button_type_submit" onclick="handleResponse(1, 'first-puzzle')">Ответить</button>
+                <button class="form__button form__button_type_hint" onclick="handleHint(1)">Узнать ответ</button>
+            </div>
+            <div class="wrong-answer-board" id="wrong-answer-board-1">
                 <p class="wrong-answer-board__text">К&nbsp;сожалению, это неправильный ответ. Попробуйте еще раз!
                     Помните, что можно воспользоваться видеоподсказками или нажать на&nbsp;кнопку &laquo;Узнать
                     ответ&raquo;.</p>
             </div>
-            <div class="correct-answer-board">
-                <p class="correct-answer-board__text">Поздравляем! Начало положено, вы&nbsp;разгадали первое
-                    из&nbsp;семи заданий.</p>
+            <div class="correct-answer-board" id="correct-answer-board-1">
+                <!-- HTML here will be added by JS -->
             </div>
-            <div class="hint-board">
+            <div class="hint-board" id="hint-board-1">
                 <p class="hint-board__text">Серия космических кораблей США, &laquo;хорошо сложенный красивый
                     мужчина&raquo;, кипрский футбольный клуб из&nbsp;города Лимасол&nbsp;&mdash; Аполлон.
                     В&nbsp;экспозиции есть несколько работ, в&nbsp;названии которых фигурирует &laquo;Аполлон&raquo;.
@@ -88,18 +88,23 @@
                 Найдите работу
                 с&nbsp;таким названием и&nbsp;напишите, пожалуйста, КТО, ну&nbsp;или ЧТО РАСПОЛОЖИЛОСЬ НАПРОТИВ.</p>
             <form class="form">
-                <label class="form__label" for="first-puzzle">Ваш ответ:</label>
+                <label class="form__label" for="second-puzzle">Ваш ответ:</label>
                 <input class="form__field" type="text" id="second-puzzle" name="second-puzzle"
                     placeholder="Напишите, кто или что напротив...">
-                <div class="form__button-container">
-                    <button class="form__button form__button_type_submit" type="submit">Ответить</button>
-                    <button class="form__button form__button_type_hint" type="button">Узнать ответ</button>
-                </div>
             </form>
-            <div class="correct-answer-board">
-                <p class="correct-answer-board__text">Отлично! Два задания из&nbsp;семи уже позади.</p>
+            <div class="form__button-container">
+                <button class="form__button form__button_type_submit" onclick="handleResponse(2, 'second-puzzle')">Ответить</button>
+                <button class="form__button form__button_type_hint" onclick="handleHint(2)">Узнать ответ</button>
             </div>
-            <div class="hint-board">
+            <div class="wrong-answer-board" id="wrong-answer-board-2">
+                <p class="wrong-answer-board__text">К&nbsp;сожалению, это неправильный ответ. Попробуйте еще раз!
+                    Помните, что можно воспользоваться видеоподсказками или нажать на&nbsp;кнопку &laquo;Узнать
+                    ответ&raquo;.</p>
+            </div>
+            <div class="correct-answer-board" id="correct-answer-board-2">
+                <!-- HTML here will be added by JS -->
+            </div>
+            <div class="hint-board" id="hint-board-2">
                 <p class="hint-board__text">Если разгадаем ребус, то&nbsp;получим ВОЛ(ЧОК) + ЧИ(ЛИ) + (ПИЦ)ЦА
                     = ВОЛЧИЦА, легендарное для римлян животное. В&nbsp;экспозиции есть работа Михаила Дайлидова
                     с&nbsp;названием &laquo;Волчица&raquo;, а&nbsp;напротив неё расположилась работа с&nbsp;названием
@@ -161,16 +166,20 @@
                 <label class="form__label" for="third-puzzle">Ваш ответ:</label>
                 <input class="form__field" type="text" id="third-puzzle" name="third-puzzle"
                     placeholder="Пример ответа: 1А2Б3В4Г5Д6Е">
-                <div class="form__button-container">
-                    <button class="form__button form__button_type_submit" type="submit">Ответить</button>
-                    <button class="form__button form__button_type_hint" type="button">Узнать ответ</button>
-                </div>
             </form>
-            <div class="correct-answer-board">
-                <p class="correct-answer-board__text">Почти половина квеста уже пройдена! Три задания из&nbsp;семи
-                    покорились вам.</p>
+            <div class="form__button-container">
+                <button class="form__button form__button_type_submit" onclick="handleResponse(3, 'third-puzzle')">Ответить</button>
+                <button class="form__button form__button_type_hint" onclick="handleHint(3)">Узнать ответ</button>
             </div>
-            <div class="hint-board">
+            <div class="wrong-answer-board" id="wrong-answer-board-3">
+                <p class="wrong-answer-board__text">К&nbsp;сожалению, это неправильный ответ. Попробуйте еще раз!
+                    Помните, что можно воспользоваться видеоподсказками или нажать на&nbsp;кнопку &laquo;Узнать
+                    ответ&raquo;.</p>
+            </div>
+            <div class="correct-answer-board" id="correct-answer-board-3">
+                <!-- HTML here will be added by JS -->
+            </div>
+            <div class="hint-board" id="hint-board-3">
                 <p class="hint-board__text">Помочь чем-то сложно, ведь для правильного ответа вам надо
                     внимательно изучить информационный стенд.</p>
                 <p class="hint-board__text"><span class="hint-board__span-accent">Правильный
@@ -190,19 +199,23 @@
                 догадаться, чего не&nbsp;хватает. Когда найдете нужную работу, напишите, пожалуйста, КАКОЙ ЗНАК ЗОДИАКА
                 фигурирует на&nbsp;работе, которая расположилась справа?</p>
             <form class="form">
-                <label class="form__label" for="first-puzzle">Ваш ответ:</label>
-                <input class="form__field" type="text" id="second-puzzle" name="second-puzzle"
+                <label class="form__label" for="fourth-puzzle">Ваш ответ:</label>
+                <input class="form__field" type="text" id="fourth-puzzle" name="fourth-puzzle"
                     placeholder="Напишите, какой знак зодиака...">
-                <div class="form__button-container">
-                    <button class="form__button form__button_type_submit" type="submit">Ответить</button>
-                    <button class="form__button form__button_type_hint" type="button">Узнать ответ</button>
-                </div>
             </form>
-            <div class="correct-answer-board">
-                <p class="correct-answer-board__text">Ого, вы&nbsp;ответили уже на&nbsp;четыре задания из&nbsp;семи!
-                    Осталось всего ничего.</p>
+            <div class="form__button-container">
+                <button class="form__button form__button_type_submit" onclick="handleResponse(4, 'fourth-puzzle')">Ответить</button>
+                <button class="form__button form__button_type_hint" onclick="handleHint(4)">Узнать ответ</button>
             </div>
-            <div class="hint-board">
+            <div class="wrong-answer-board" id="wrong-answer-board-4">
+                <p class="wrong-answer-board__text">К&nbsp;сожалению, это неправильный ответ. Попробуйте еще раз!
+                    Помните, что можно воспользоваться видеоподсказками или нажать на&nbsp;кнопку &laquo;Узнать
+                    ответ&raquo;.</p>
+            </div>
+            <div class="correct-answer-board" id="correct-answer-board-4">
+                <!-- HTML here will be added by JS -->
+            </div>
+            <div class="hint-board" id="hint-board-4">
                 <p class="hint-board__text">Перед вами обозначения различных путей сообщения, которые можно
                     найти на&nbsp;географических картах. Какого-то одного не&nbsp;хватает. Какого конкретно&nbsp;&mdash;
                     сказать сложно, поэтому надо было искать в&nbsp;экспозиции что-то связанное с&nbsp;&laquo;дорогой,
@@ -224,19 +237,23 @@
                 фигурируют в&nbsp;название одной из&nbsp;работ в&nbsp;экспозиции. Если нашли&nbsp;ИХ, то&nbsp;НАПИШИТЕ,
                 пожалуйста, ИМЯ КРАСАВЦА, который фигурирует на&nbsp;работе, которая расположилась слева?</p>
             <form class="form">
-                <label class="form__label" for="first-puzzle">Ваш ответ:</label>
-                <input class="form__field" type="number" id="second-puzzle" name="second-puzzle"
+                <label class="form__label" for="fifth-puzzle">Ваш ответ:</label>
+                <input class="form__field" type="text" id="fifth-puzzle" name="fifth-puzzle"
                     placeholder="Напишите, имя красавца...">
-                <div class="form__button-container">
-                    <button class="form__button form__button_type_submit" type="submit">Ответить</button>
-                    <button class="form__button form__button_type_hint" type="button">Узнать ответ</button>
-                </div>
             </form>
-            <div class="correct-answer-board">
-                <p class="correct-answer-board__text">Пятое задание из&nbsp;семи тоже за&nbsp;вами, осталось всего два!
-                </p>
+            <div class="form__button-container">
+                <button class="form__button form__button_type_submit" onclick="handleResponse(5, 'fifth-puzzle')">Ответить</button>
+                <button class="form__button form__button_type_hint" onclick="handleHint(5)">Узнать ответ</button>
             </div>
-            <div class="hint-board">
+            <div class="wrong-answer-board" id="wrong-answer-board-5">
+                <p class="wrong-answer-board__text">К&nbsp;сожалению, это неправильный ответ. Попробуйте еще раз!
+                    Помните, что можно воспользоваться видеоподсказками или нажать на&nbsp;кнопку &laquo;Узнать
+                    ответ&raquo;.</p>
+            </div>
+            <div class="correct-answer-board" id="correct-answer-board-5">
+                <!-- HTML here will be added by JS -->
+            </div>
+            <div class="hint-board" id="hint-board-5">
                 <p class="hint-board__text">Вряд&nbsp;ли вы&nbsp;знаете двух конкретных персонажей, которые родились
                     с&nbsp;разницей в&nbsp;545&nbsp;лет, поэтому советуем обращать внимание на&nbsp;названия работ, где
                     есть два каких-то персонажа. Когда вам на&nbsp;глаза попадётся литография &laquo;Портрет Шопена
@@ -257,19 +274,23 @@
                 достаточна проста: найдите ЕГО в&nbsp;экспозиции и&nbsp;напишите, пожалуйста, сколько
                 &laquo;аксессуаров&raquo; &laquo;украшает&raquo; работу, где он&nbsp;фигурирует?</p>
             <form class="form">
-                <label class="form__label" for="first-puzzle">Ваш ответ:</label>
-                <input class="form__field" type="text" id="second-puzzle" name="second-puzzle"
+                <label class="form__label" for="sixth-puzzle">Ваш ответ:</label>
+                <input class="form__field" type="text" id="sixth-puzzle" name="sixth-puzzle"
                     placeholder="Например: 13">
-                <div class="form__button-container">
-                    <input class="form__button form__button_type_submit" type="submit" value="Ответить">
-                    <input class="form__button form__button_type_cheat" type="submit" value="Узнать ответ">
-                </div>
             </form>
-            <div class="correct-answer-board">
-                <p class="correct-answer-board__text">Супер, вы&nbsp;ответили на&nbsp;шесть заданий из&nbsp;семи! Даже
-                    немного грустно, что осталось всего одно.</p>
+            <div class="form__button-container">
+                <button class="form__button form__button_type_submit" onclick="handleResponse(6, 'sixth-puzzle')">Ответить</button>
+                <button class="form__button form__button_type_hint" onclick="handleHint(6)">Узнать ответ</button>
             </div>
-            <div class="hint-board">
+            <div class="wrong-answer-board" id="wrong-answer-board-6">
+                <p class="wrong-answer-board__text">К&nbsp;сожалению, это неправильный ответ. Попробуйте еще раз!
+                    Помните, что можно воспользоваться видеоподсказками или нажать на&nbsp;кнопку &laquo;Узнать
+                    ответ&raquo;.</p>
+            </div>
+            <div class="correct-answer-board" id="correct-answer-board-6">
+                <!-- HTML here will be added by JS -->
+            </div>
+            <div class="hint-board" id="hint-board-6">
                 <p class="hint-board__text">Вы, вероятно, знаете нужную пословицу &laquo;Незванный гость хуже
                     татарина&raquo;. Значит &laquo;он&raquo;&nbsp;&mdash; &laquo;Незванный гость&raquo;. Когда найдете
                     скульптуру Дарьи Гласс с&nbsp;названием, то&nbsp;посчитайте количество &laquo;аксессуаров&raquo;,
@@ -290,26 +311,23 @@
             <img src="./images/puzzle__image_number_three.jpg" alt="" class="puzzle__image">
             <p class="puzzle__text">Нашли? Тогда напишите, пожалуйста, КАКОЙ ИТАЛЬЯНСКИЙ ГОРОД расположился справа?</p>
             <form class="form">
-                <label class="form__label" for="first-puzzle">Ваш ответ:</label>
-                <input class="form__field" type="text" id="second-puzzle" name="second-puzzle"
+                <label class="form__label" for="seventh-puzzle">Ваш ответ:</label>
+                <input class="form__field" type="text" id="seventh-puzzle" name="seventh-puzzle"
                     placeholder="Напишите итальянский город...">
-                <div class="form__button-container">
-                    <button class="form__button form__button_type_submit" type="submit">Ответить</button>
-                    <button class="form__button form__button_type_hint" type="button">Узнать ответ</button>
-                </div>
             </form>
-            <div class="correct-answer-board">
-                <p class="correct-answer-board__text">Семь из&nbsp;семи, наши поздравления! Теперь можете получить свой
-                    бонус у&nbsp;администратора.</p>
-                <p class="correct-answer-board__text">
-                    Надеемся, что вам понравилось! Если квест, действительно, пришёлся вам по&nbsp;душе или есть
-                    какие-то пожелания по&nbsp;нему, то&nbsp;будем признательны, если упомянете об&nbsp;этом
-                    в&nbsp;своих социальных сетях, отметив при этом нас&mdash; нам будет о-о-очень приятно! В&nbsp;любом
-                    случае, будем рады если подпишетесь на&nbsp;наши социальные сети, которые найдете внизу страницы
-                    <span>&#129303</span>
-                </p>
+            <div class="form__button-container">
+                <button class="form__button form__button_type_submit" onclick="handleResponse(7, 'seventh-puzzle')">Ответить</button>
+                <button class="form__button form__button_type_hint" onclick="handleHint(7)">Узнать ответ</button>
             </div>
-            <div class="hint-board">
+            <div class="wrong-answer-board" id="wrong-answer-board-7">
+                <p class="wrong-answer-board__text">К&nbsp;сожалению, это неправильный ответ. Попробуйте еще раз!
+                    Помните, что можно воспользоваться видеоподсказками или нажать на&nbsp;кнопку &laquo;Узнать
+                    ответ&raquo;.</p>
+            </div>
+            <div class="correct-answer-board" id="correct-answer-board-7">
+                <!-- HTML here will be added by JS -->
+            </div>
+            <div class="hint-board" id="hint-board-7">
                 <p class="hint-board__text">На&nbsp;изображении вы&nbsp;видите много геометрических фигур,
                     другими словами, &laquo;группу фигур&raquo;. Так что осталось найти литографию Делакруа
                     с&nbsp;названием &laquo;Группа фигур&raquo;, а&nbsp;справа от&nbsp;неё&nbsp;&mdash; &laquo;Битва при
