@@ -1,4 +1,13 @@
 .form__button {
+    box-sizing: border-box;
+    font-size: 16px;
+    line-height: 1;
+    text-transform: uppercase;
+    padding: 5px;
     display: block;
-    margin: 10px auto 0;
+    margin: 0;
+    background-color: #2A2C2F;
+    color: #fff;
+    border: 3px #fff solid;
+    border-radius: 4px;
 }
