@@ -1,0 +1,8 @@
+.hint-board {
+    box-shadow: 0 0 8px rgb(230, 230, 0);
+    background-color: rgb(43, 43, 43);
+    border-radius: 3px;
+    padding: 4px 6px;
+    box-sizing: border-box;
+    display: none;
+}

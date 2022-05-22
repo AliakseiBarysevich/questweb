@@ -22,6 +22,8 @@
             <ul class="description__text">
                 <li class="description__text-item">Не&nbsp;бросайтесь проходить квест сразу&nbsp;&mdash; для начала
                     хотя&nbsp;бы минимально ознакомьтесь с&nbsp;экспозицией.</li>
+                <li class="description__text-item">Отвечать на&nbsp;задания можно в&nbsp;любом удобном для вас порядке.
+                </li>
                 <li class="description__text-item">Если совсем не&nbsp;удаётся решить какое-то задание, то&nbsp;смело
                     переходите к&nbsp;следующему. Пока будете решать следующее задание, можете натолкнуться
                     на&nbsp;ответ
@@ -45,12 +47,28 @@
                 <label class="form__label" for="first-puzzle">Ваш ответ:</label>
                 <input class="form__field" type="number" min="1800" max="2022" id="first-puzzle" name="fisrt-puzzle"
                     placeholder="Например: 1984">
-                    <div class="form__button-container">
-                        <input class="form__button" type="submit" value="Ответить">
-                    <input class="form__button" type="reset" value="Сбросить">
-                    <input class="form__button" type="submit" value="Узнать ответ">
-                    </div>
+                <div class="form__button-container">
+                    <input class="form__button form__button_type_submit" type="submit" value="Ответить">
+                    <input class="form__button form__button_type_cheat" type="submit" value="Узнать ответ">
+                </div>
             </form>
+            <div class="wrong-answer-board">
+                <p class="wrong-answer-board__text">К&nbsp;сожалению, это неправильный ответ. Попробуйте еще раз!
+                    Помните, что можно воспользоваться видеоподсказками или нажать на&nbsp;кнопку &laquo;Узнать
+                    ответ&raquo;.</p>
+            </div>
+            <div class="correct-answer-board">
+                <p class="correct-answer-board__text">Поздравляем! Начало положено, вы&nbsp;разгадали первое
+                    из&nbsp;семи заданий.</p>
+            </div>
+            <div class="hint-board">
+                <p class="hint-board__text">Серия космических кораблей США, &laquo;хорошо сложенный красивый
+                    мужчина&raquo;, кипрский футбольный клуб из&nbsp;города Лимасол&nbsp;&mdash; Аполлон.
+                    В&nbsp;экспозиции есть несколько работ, в&nbsp;названии которых фигурирует &laquo;Аполлон&raquo;.
+                    Самую позднюю из&nbsp;них создал Владимир Бескровный в&nbsp;2021&nbsp;году.</p>
+                <p class="hint-board__text"><span class="hint-board__span-accent">Правильный
+                        ответ:</span> 2021.</p>
+            </div>
             <p class="puzzle__video-description">Подсказка №1</p>
             <iframe class="puzzle__video" id="ytplayer" type="text/html" width="720" height="405"
                 src="https://www.youtube.com/embed/mCVBrKfyzQY" frameborder="0" allowfullscreen></iframe>
@@ -73,7 +91,22 @@
                 <label class="form__label" for="first-puzzle">Ваш ответ:</label>
                 <input class="form__field" type="text" id="second-puzzle" name="second-puzzle"
                     placeholder="Напишите, кто или что напротив...">
+                <div class="form__button-container">
+                    <input class="form__button form__button_type_submit" type="submit" value="Ответить">
+                    <input class="form__button form__button_type_cheat" type="submit" value="Узнать ответ">
+                </div>
             </form>
+            <div class="correct-answer-board">
+                <p class="correct-answer-board__text">Отлично! Два задания из&nbsp;семи уже позади.</p>
+            </div>
+            <div class="hint-board">
+                <p class="hint-board__text">Если разгадаем ребус, то&nbsp;получим ВОЛ(ЧОК) + ЧИ(ЛИ) + (ПИЦ)ЦА
+                    = ВОЛЧИЦА, легендарное для римлян животное. В&nbsp;экспозиции есть работа Михаила Дайлидова
+                    с&nbsp;названием &laquo;Волчица&raquo;, а&nbsp;напротив неё расположилась работа с&nbsp;названием
+                    &laquo;Канатоходцы&raquo;.</p>
+                <p class="hint-board__text"><span class="hint-board__span-accent">Правильный
+                        ответ:</span> канатоходцы.</p>
+            </div>
             <p class="puzzle__video-description">Подсказка</p>
             <iframe class="puzzle__video" id="ytplayer" type="text/html" width="720" height="405"
                 src="https://www.youtube.com/embed/F9FqruAP_mU" frameborder="0" allowfullscreen></iframe>
@@ -128,7 +161,21 @@
                 <label class="form__label" for="third-puzzle">Ваш ответ:</label>
                 <input class="form__field" type="text" id="third-puzzle" name="third-puzzle"
                     placeholder="Пример ответа: 1А2Б3В4Г5Д6Е">
+                <div class="form__button-container">
+                    <input class="form__button form__button_type_submit" type="submit" value="Ответить">
+                    <input class="form__button form__button_type_cheat" type="submit" value="Узнать ответ">
+                </div>
             </form>
+            <div class="correct-answer-board">
+                <p class="correct-answer-board__text">Почти половина квеста уже пройдена! Три задания из&nbsp;семи
+                    покорились вам.</p>
+            </div>
+            <div class="hint-board">
+                <p class="hint-board__text">Помочь чем-то сложно, ведь для правильного ответа вам надо
+                    внимательно изучить информационный стенд.</p>
+                <p class="hint-board__text"><span class="hint-board__span-accent">Правильный
+                        ответ:</span> 1Е2Д3Г4В5Б6А.</p>
+            </div>
             <p class="puzzle__video-description">Подсказка</p>
             <iframe class="puzzle__video" id="ytplayer" type="text/html" width="720" height="405"
                 src="https://www.youtube.com/embed/CisKFPrxAhE" frameborder="0" allowfullscreen></iframe>
@@ -146,7 +193,25 @@
                 <label class="form__label" for="first-puzzle">Ваш ответ:</label>
                 <input class="form__field" type="text" id="second-puzzle" name="second-puzzle"
                     placeholder="Напишите, какой знак зодиака...">
+                <div class="form__button-container">
+                    <input class="form__button form__button_type_submit" type="submit" value="Ответить">
+                    <input class="form__button form__button_type_cheat" type="submit" value="Узнать ответ">
+                </div>
             </form>
+            <div class="correct-answer-board">
+                <p class="correct-answer-board__text">Ого, вы&nbsp;ответили уже на&nbsp;четыре задания из&nbsp;семи!
+                    Осталось всего ничего.</p>
+            </div>
+            <div class="hint-board">
+                <p class="hint-board__text">Перед вами обозначения различных путей сообщения, которые можно
+                    найти на&nbsp;географических картах. Какого-то одного не&nbsp;хватает. Какого конкретно&nbsp;&mdash;
+                    сказать сложно, поэтому надо было искать в&nbsp;экспозиции что-то связанное с&nbsp;&laquo;дорогой,
+                    шоссе, магистралью, тропой&raquo;. Когда увидите работу &laquo;Лесная тропа&raquo; Эжена Делакруа,
+                    то, вероятно, поймете, что вы&nbsp;у&nbsp;цели. Теперь смотрим на&nbsp;работу слева&nbsp;&mdash;
+                    &laquo;Лев, пожирающий лошадь&raquo;. Вот и&nbsp;нужный нам знак зодиака&nbsp;&mdash; Лев.</p>
+                <p class="hint-board__text"><span class="hint-board__span-accent">Правильный
+                        ответ:</span> Лев.</p>
+            </div>
             <p class="puzzle__video-description">Подсказка</p>
             <iframe class="puzzle__video" id="ytplayer" type="text/html" width="720" height="405"
                 src="https://www.youtube.com/embed/TGbBtAYzetw" frameborder="0" allowfullscreen></iframe>
@@ -160,9 +225,27 @@
                 пожалуйста, ИМЯ КРАСАВЦА, который фигурирует на&nbsp;работе, которая расположилась слева?</p>
             <form class="form">
                 <label class="form__label" for="first-puzzle">Ваш ответ:</label>
-                <input class="form__field" type="text" id="second-puzzle" name="second-puzzle"
+                <input class="form__field" type="number" id="second-puzzle" name="second-puzzle"
                     placeholder="Напишите, имя красавца...">
+                <div class="form__button-container">
+                    <input class="form__button form__button_type_submit" type="submit" value="Ответить">
+                    <input class="form__button form__button_type_cheat" type="submit" value="Узнать ответ">
+                </div>
             </form>
+            <div class="correct-answer-board">
+                <p class="correct-answer-board__text">Пятое задание из&nbsp;семи тоже за&nbsp;вами, осталось всего два!
+                </p>
+            </div>
+            <div class="hint-board">
+                <p class="hint-board__text">Вряд&nbsp;ли вы&nbsp;знаете двух конкретных персонажей, которые родились
+                    с&nbsp;разницей в&nbsp;545&nbsp;лет, поэтому советуем обращать внимание на&nbsp;названия работ, где
+                    есть два каких-то персонажа. Когда вам на&nbsp;глаза попадётся литография &laquo;Портрет Шопена
+                    в&nbsp;образе Данте&raquo;, то&nbsp;вы, вероятно, сопоставите, что Шопен и&nbsp;Данте,
+                    действительно, представители абсолютно разных эпох. А&nbsp;работа слева&nbsp;&mdash; &laquo;Портрет
+                    Эжена Делакруа&raquo;, таким образом, имя нужного вам красавца&nbsp;&mdash; Эжен.</p>
+                <p class="hint-board__text"><span class="hint-board__span-accent">Правильный
+                        ответ:</span> Эжен.</p>
+            </div>
             <p class="puzzle__video-description">Подсказка</p>
             <iframe class="puzzle__video" id="ytplayer" type="text/html" width="720" height="405"
                 src="https://www.youtube.com/embed/1oxZ4PkOoXQ" frameborder="0" allowfullscreen></iframe>
@@ -177,7 +260,24 @@
                 <label class="form__label" for="first-puzzle">Ваш ответ:</label>
                 <input class="form__field" type="text" id="second-puzzle" name="second-puzzle"
                     placeholder="Например: 13">
+                <div class="form__button-container">
+                    <input class="form__button form__button_type_submit" type="submit" value="Ответить">
+                    <input class="form__button form__button_type_cheat" type="submit" value="Узнать ответ">
+                </div>
             </form>
+            <div class="correct-answer-board">
+                <p class="correct-answer-board__text">Супер, вы&nbsp;ответили на&nbsp;шесть заданий из&nbsp;семи! Даже
+                    немного грустно, что осталось всего одно.</p>
+            </div>
+            <div class="hint-board">
+                <p class="hint-board__text">Вы, вероятно, знаете нужную пословицу &laquo;Незванный гость хуже
+                    татарина&raquo;. Значит &laquo;он&raquo;&nbsp;&mdash; &laquo;Незванный гость&raquo;. Когда найдете
+                    скульптуру Дарьи Гласс с&nbsp;названием, то&nbsp;посчитайте количество &laquo;аксессуаров&raquo;,
+                    то&nbsp;есть гвоздей, которые &laquo;украшают&raquo; работу. У&nbsp;вас должно получится
+                    17&nbsp;гвоздей.</p>
+                <p class="hint-board__text"><span class="hint-board__span-accent">Правильный
+                        ответ:</span> 17.</p>
+            </div>
             <p class="puzzle__video-description">Подсказка</p>
             <iframe class="puzzle__video" id="ytplayer" type="text/html" width="720" height="405"
                 src="https://www.youtube.com/embed/yR534LAcWOI" frameborder="0" allowfullscreen></iframe>
@@ -193,19 +293,33 @@
                 <label class="form__label" for="first-puzzle">Ваш ответ:</label>
                 <input class="form__field" type="text" id="second-puzzle" name="second-puzzle"
                     placeholder="Напишите итальянский город...">
+                <div class="form__button-container">
+                    <input class="form__button form__button_type_submit" type="submit" value="Ответить">
+                    <input class="form__button form__button_type_cheat" type="submit" value="Узнать ответ">
+                </div>
             </form>
+            <div class="correct-answer-board">
+                <p class="correct-answer-board__text">Семь из&nbsp;семи, наши поздравления! Теперь можете получить свой
+                    бонус у&nbsp;администратора.</p>
+                <p class="correct-answer-board__text">
+                    Надеемся, что вам понравилось! Если квест, действительно, пришёлся вам по&nbsp;душе или есть
+                    какие-то пожелания по&nbsp;нему, то&nbsp;будем признательны, если упомянете об&nbsp;этом
+                    в&nbsp;своих социальных сетях, отметив при этом нас&mdash; нам будет о-о-очень приятно! В&nbsp;любом
+                    случае, будем рады если подпишетесь на&nbsp;наши социальные сети, которые найдете внизу страницы
+                    <span>&#129303</span>
+                </p>
+            </div>
+            <div class="hint-board">
+                <p class="hint-board__text">На&nbsp;изображении вы&nbsp;видите много геометрических фигур,
+                    другими словами, &laquo;группу фигур&raquo;. Так что осталось найти литографию Делакруа
+                    с&nbsp;названием &laquo;Группа фигур&raquo;, а&nbsp;справа от&nbsp;неё&nbsp;&mdash; &laquo;Битва при
+                    Арколе&raquo;. Получается, нужный вам итальянский город&nbsp;&mdash; Арколе.</p>
+                <p class="hint-board__text"><span class="hint-board__span-accent">Правильный
+                        ответ:</span> Арколе.</p>
+            </div>
             <p class="puzzle__video-description">Подсказка</p>
             <iframe class="puzzle__video" id="ytplayer" type="text/html" width="720" height="405"
                 src="https://www.youtube.com/embed/wNaeHHKW3RE" frameborder="0" allowfullscreen></iframe>
-        </section>
-
-        <section class="bonus">
-            <h2 class="bonus__title">Что дальше?</h2>
-            <p class="bonus__text">Если у&nbsp;вас всё получилось, то&nbsp;можете забрать свой бонус
-                у&nbsp;администратора. Надеемся, что вам понравилось!</p>
-            <p class="bonus__text">Понравился квест или есть какие-то пожелания по&nbsp;нему?
-                Будем признательны, если упомянете об&nbsp;этом в&nbsp;своих социальных сетях, отметив при этом
-                нас&nbsp;&mdash; нам будет о-о-очень приятно!</p>
         </section>
 
         <footer class="footer">

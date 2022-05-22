@@ -1,0 +1,9 @@
+.correct-answer-board__text {
+    font-size: 14px;
+    line-height: 1.25;
+    margin: 0 0 10px;
+}
+
+.correct-answer-board__text:last-of-type {
+    margin: 0;
+}

@@ -36,6 +36,22 @@
 @import url(../blocks/form/__button-container/form__button-container.css);
 @import url(../blocks/form/__button/form__button.css);
 
+/* wrong-answer-board */
+
+@import url(../blocks/wrong-answer-board/wrong-answer-board.css);
+@import url(../blocks/wrong-answer-board/__text/wrong-answer-board__text.css);
+
+/* correct-answer-board */
+
+@import url(../blocks/correct-answer-board/correct-answer-board.css);
+@import url(../blocks/correct-answer-board/__text/correct-answer-board__text.css);
+
+/* hint-board */
+
+@import url(../blocks/hint-board/hint-board.css);
+@import url(../blocks/hint-board/__text/hint-board__text.css);
+@import url(../blocks/hint-board/__span-accent/hint-board__span-accent.css);
+
 /* table */
 
 @import url(../blocks/table/table.css);
