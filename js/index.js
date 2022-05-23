@@ -1,14 +1,13 @@
 // Data:
 
 const answers = {
-  // TODO(Baryska): Consider adding more response options e.g. uncapitalized versions of responses or responses with common typos.
   1: ["2021"],
-  2: ["канатоходец", "канатоходцы", "Канатоходцы", "Канатоходец"],
-  3: ["1Е2Д3Г4В5Б6А", "1Е 2Д 3Г 4В 5Б 6А", "1е2д3г4в5б6а"],
-  4: ["Лев", "лев"],
-  5: ["Эжен", "Делакруа", "Эжен Делакруа", "Делакруа Эжен", "эжен", "делакруа", "эжен делакруа", "делакруа эжен"],
+  2: ["канатоходец", "канатоходцы"],
+  3: ["1Е2Д3Г4В5Б6А", "1Е 2Д 3Г 4В 5Б 6А", "1е2д3г4в5б6а", "1е 2д 3г 4в 5б 6а"],
+  4: ["лев"],
+  5: ["эжен", "делакруа", "эжен делакруа", "делакруа эжен"],
   6: ["17"],
-  7: ["Арколе", "Арколь", "арколе", "арколь"],
+  7: ["арколе", "арколь"],
 };
 
 const onCorrectAnswerHTML = {
@@ -31,7 +30,7 @@ const onCorrectAnswerHTML = {
 // Handlers for actions:
 
 const handleResponse = (questionNumber, responseTextElementId) => {
-  if (answers[questionNumber].includes(document.getElementById(responseTextElementId).value.trim())) {
+  if (answers[questionNumber].includes(document.getElementById(responseTextElementId).value.trim().toLowerCase())) {
     saveCorrectResponse(questionNumber);
     const totalCorrectResponses = getCurrentTotalCorrectResponses()
     renderResponseCorrectBlock(questionNumber, totalCorrectResponses);
